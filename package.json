@@ -16,6 +16,7 @@
     "expo": "~44.0.0",
     "expo-status-bar": "~1.2.0",
     "react": "17.0.1",
+    "react-client-session": "^0.0.8",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
     "react-native-calendars": "^1.1280.0",
@@ -31,6 +32,7 @@
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
+    "miragejs": "^0.1.43",
     "typescript": "~4.3.5"
   },
   "private": true

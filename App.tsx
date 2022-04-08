@@ -14,10 +14,23 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AdvertiseDetails from "./src/screens/AdvertiseDetails";
 import Payment from "./src/screens/Payment";
 import ConfirmShovelerScreen from "./src/screens/ConfirmShoveler";
+import { createServer } from "miragejs"
 
 const MainStack = createNativeStackNavigator();
 
+createServer({
+  routes() {
+    this.get("/api/login", () => {
+      return {
+        username: "Emma", 
+        authToken: "asdkjanskdjnaklsdjlasjdlaksdjllljl",
+      }
+    })
+  },
+})
+
 export default function App() {
+
   return (
     <NavigationContainer>
       <MainStack.Navigator initialRouteName="onboarding_1" screenOptions={{ headerShown: false }}>

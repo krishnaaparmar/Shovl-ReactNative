@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, View, Text, Image, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { ReactSession } from 'react-client-session';
 
 const LoginScreen = ({ navigation }: {navigation: any}) => {
   const [email, setEmail] = useState<String>("");
@@ -8,10 +9,27 @@ const LoginScreen = ({ navigation }: {navigation: any}) => {
   const [error, setError] = useState<Boolean>(false);
   const [errorMsg, setErrorMsg] = useState<String>("");
 
+
   const resetError = () => {
     setError(false);
     setErrorMsg("");
   };
+
+  const authenticate = () => {
+    return fetch("/api/login")
+      .then((response) => response.json())
+      .then((json) => {
+        ReactSession.set("username", json.username);
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "bottomNav", params: { email, password } }],
+        });
+
+      })
+  };
+
+
+
   const handleLogin = () => {
     if (email === "") {
       setErrorMsg("Email is Empty");
@@ -26,10 +44,10 @@ const LoginScreen = ({ navigation }: {navigation: any}) => {
     setErrorMsg("");
     setError(false);
 
-    navigation.reset({
-      index: 0,
-      routes: [{ name: "bottomNav", params: { email, password } }],
-    });
+    ReactSession.setStoreType("localStorage");
+
+    authenticate()
+
   };
   return (
     <View style={styles.mainBody}>

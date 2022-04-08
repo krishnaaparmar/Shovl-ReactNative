@@ -7,8 +7,12 @@ import { IToDo } from "../resources/ITToDo";
 import { FontAwesome } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import { ReactSession } from 'react-client-session';
+
 
 const HomeScreen = ({ navigation, route}: {navigation: any,route: any}) => {
+
+  const username = ReactSession.get("username");
     
        const signout = () => {
         Alert.alert("Attention \n", " Do you really want to sign out!", [
@@ -43,7 +47,7 @@ const HomeScreen = ({ navigation, route}: {navigation: any,route: any}) => {
         </View>
         {/* End of navigation */}
         {/* Body part Starts */}
-        <Text style={{color:"black",textAlign:"left",fontWeight:"bold",fontSize:16,padding:10}}>Hello, Username</Text>
+        <Text style={{color:"black",textAlign:"left",fontWeight:"bold",fontSize:16,padding:10}}>Hello, {username}</Text>
         <View style={styles.formElements}>
             <View style={styles.labelName}>
                 <View style={styles.leftPost}>
