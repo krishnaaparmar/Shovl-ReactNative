@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, TextInput, View, Text, Image, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { ReactSession } from 'react-client-session';
+import 'localstorage-polyfill';
 
 const LoginScreen = ({ navigation }: {navigation: any}) => {
   const [email, setEmail] = useState<String>("");
@@ -26,6 +27,11 @@ const LoginScreen = ({ navigation }: {navigation: any}) => {
         });
 
       })
+      .catch(function(error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
+        setError(true);
+        setErrorMsg(error.message);
+        });
   };
 
 
