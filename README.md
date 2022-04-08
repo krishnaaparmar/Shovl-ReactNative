@@ -5,6 +5,11 @@ Shovl is a mobile application implemented using react-native that provide snow c
 
 Working Application:
 
-https://youtu.be/yxgJmMGZVnQ
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/yxgJmMGZVnQ/0.jpg)](http://www.youtube.com/watch?v=yxgJmMGZVnQ "Shovl - React Native Application")
+
+
+
+
+
 
 
